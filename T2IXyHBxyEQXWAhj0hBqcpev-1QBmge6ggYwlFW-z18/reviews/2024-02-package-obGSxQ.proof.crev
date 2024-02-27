@@ -1,0 +1,25 @@
+----- BEGIN CREV PROOF -----
+kind: package review
+version: -1
+date: 2024-02-26T21:05:11.818838467-05:00
+from:
+  id-type: crev
+  id: T2IXyHBxyEQXWAhj0hBqcpev-1QBmge6ggYwlFW-z18
+package:
+  source: https://crates.io
+  name: fastrand
+  version: 2.0.1
+  revision: 387e3baead884a504d98e89bb4316db98f5c15ce
+  digest: m1aTdaMInexg_04puw5OODy7gUXqvUXTJINYFK12eEY
+review:
+  thoroughness: medium
+  understanding: medium
+  rating: positive
+comment: |-
+  uses the hash of thread ids to seed the thread-local prng on non-wasm platforms.
+  ThreadId is supposed to be opaque.  this may lead to unexpected determinism or
+  non-determinism.  on wasm with js disabled, the seed is the same for all threads.
+----- SIGN CREV PROOF -----
+Yoe8tLK5RtcT5VS6Amv67VzM1hYWmVL56j1DF2F9QTxjERks8DcWdT4zGu-bW8oHyhCxHYCo8SShMMIEGUJZAw
+----- END CREV PROOF -----
+
