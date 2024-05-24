@@ -1,0 +1,25 @@
+----- BEGIN CREV PROOF -----
+kind: package review
+version: -1
+date: 2024-05-23T21:38:14.832458837-04:00
+from:
+  id-type: crev
+  id: T2IXyHBxyEQXWAhj0hBqcpev-1QBmge6ggYwlFW-z18
+  url: https://github.com/lolbinarycat/crev-proofs
+package:
+  source: https://crates.io
+  name: home
+  version: 0.5.5
+  revision: be338923a4b54ba4462b29248011014bd0d2bbcf
+  digest: Vdtx3hhhjOr5FtePg6-cls6YlUft75fuqWAnic1cr-A
+review:
+  thoroughness: low
+  understanding: medium
+  rating: positive
+comment: |-
+  dependancy of cargo and rustup, maintained as part of the cargo repo.
+  mostly trivial.
+----- SIGN CREV PROOF -----
+DqNMMHNApkekBKguRPyWGfs3UdcnOYSf0VeZfhA7y6EYnrrP3PdFZdkYtkxa9YW2Coz_XvoY0Iiy2YF9W9SCCA
+----- END CREV PROOF -----
+
