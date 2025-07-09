@@ -1,0 +1,42 @@
+----- BEGIN CREV PROOF -----
+kind: package review
+version: -1
+date: 2025-07-09T12:40:39.828066278-05:00
+from:
+  id-type: crev
+  id: h4GtHB7dDOkVOxHlDK1nm1DcNe7DFzL3QYFCatWeoa4
+package:
+  source: https://crates.io
+  name: fuzzyhash
+  version: 0.2.2
+  revision: 30ad175f4d1448577cb119d5f4877a3ac29ab9e6
+  digest: 33OY0IoVIXN0FdM7Lro_K4PPdlXYXnckKnaaAmf1Dts
+review:
+  thoroughness: low
+  understanding: medium
+  rating: negative
+alternatives:
+- source: https://crates.io
+  name: ffuzzy
+- source: https://crates.io
+  name: ssdeep
+comment: |-
+  Potential Soundness Issues:
+  * contains `no_mangle` functions `fuzzyhash` and `fuzzyhash_compare`, these are not gated behind a feature flag
+  * uses `unsafe` excessivly when safe functions would work, for example using `Vec::set_len` instead of truncate
+  * does not include SAFETY comments
+  Code Quality Issues:
+  * implements deprecated methods of std::error::Error trait, specifically `description` and `cause`
+  * `Error::to_string` does not expose the same info as `Error::description`
+  * Modes enum is not marked non_exhaustive (semver hazard)
+  * Modes other than None is are implemented
+  * Modes should be a set of bitflags instead of an enum, as it should be possible to set both flags at once
+  * uses a zero-filled vec, a seperate position variable, and Vec::set_len, instead of Vec::with_capacity and Vec::push
+  * does not integrate with any existing hasher traits
+  Performance Issues:
+  * always returns base64 encoded strings instead of raw bytes
+  * Roll::window could use an array instead of a vec, as its length is constant
+----- SIGN CREV PROOF -----
+SQLhpPIBxlJGWsED8pZYsgcE_T_SBWI6a2-b1lAHGeB_obDUEZzPFdku8GV-ZqjjCGno-kn4PnOJAQZoA_LNAQ
+----- END CREV PROOF -----
+
